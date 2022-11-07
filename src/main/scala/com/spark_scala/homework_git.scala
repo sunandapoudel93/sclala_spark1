@@ -27,8 +27,8 @@ object homework_git {
 
     val df3 = df2.groupBy(col("weekpervotes"),col(colName = "yearofvotes")).count().sort("yearofvotes").withColumn("percentage", col("count") / sum("count").over())
 
-    df3.withColumn(colName = "weekoutlier",(when(col("percentage")>0.002,"outlier")).otherwise("nooutlier")).show()
-    //df3.show()
+    df3.withColumn(colName = "weekoutlier",(when(col("percentage")>0.002,"outlier")).otherwise("nooutlier"))
+    df3.show()
 
     //df3.write.csv("/tmp/sample1")
 
